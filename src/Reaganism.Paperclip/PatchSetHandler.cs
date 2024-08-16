@@ -152,9 +152,9 @@ public sealed class PatchSetHandler(PatchSet patchSet)
             }
 
             Console.WriteLine($"Patching {node.Name}...");
-            if (Directory.Exists(node.PatchDir))
+            if (!Directory.Exists(node.PatchDir))
             {
-                Directory.Delete(node.PatchDir, true);
+                Directory.CreateDirectory(node.PatchDir);
             }
 
             if (Directory.Exists(Path.Combine(sources_dir, node.Name)))

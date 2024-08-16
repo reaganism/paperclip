@@ -89,7 +89,7 @@ public sealed class PatchSet
             throw new FileNotFoundException("Patch-set file not found.", path);
         }
 
-        return FromJson(File.ReadAllText(path), Path.GetDirectoryName(Path.GetFileName(path)) ?? string.Empty);
+        return FromJson(File.ReadAllText(path), Path.GetDirectoryName(Path.GetFullPath(path)) ?? string.Empty);
     }
 
     /// <summary>
