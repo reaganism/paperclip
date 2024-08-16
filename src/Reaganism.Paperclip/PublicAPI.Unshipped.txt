@@ -4,6 +4,10 @@ const Reaganism.Paperclip.Workspace.WorkspaceNode.KIND_DEPOT = "depot" -> string
 const Reaganism.Paperclip.Workspace.WorkspaceNode.KIND_MOD = "mod" -> string!
 override Reaganism.Paperclip.Workspace.DepotNode.Kind.get -> string!
 override Reaganism.Paperclip.Workspace.ModNode.Kind.get -> string!
+Reaganism.Paperclip.PatchSetHandler
+Reaganism.Paperclip.PatchSetHandler.AllNodes.get -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.PatchSetHandler.PatchSet.get -> Reaganism.Paperclip.Workspace.PatchSet!
+Reaganism.Paperclip.PatchSetHandler.PatchSetHandler(Reaganism.Paperclip.Workspace.PatchSet! patchSet) -> void
 Reaganism.Paperclip.Workspace.DepotNode
 Reaganism.Paperclip.Workspace.DepotNode.Appid.get -> int
 Reaganism.Paperclip.Workspace.DepotNode.DepotId.get -> int
