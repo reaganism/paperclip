@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaganism.Paperclip", "Reaganism.Paperclip\Reaganism.Paperclip.csproj", "{EC42DD83-E7E0-4AA4-A1BC-4880F9F32E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaganism.CDC", "cdc\src\Reaganism.CDC\Reaganism.CDC.csproj", "{F2DC8D19-8DB8-4B2A-B8E7-78A696785F11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaganism.FBI", "cdc\src\fbi\src\Reaganism.FBI\Reaganism.FBI.csproj", "{814E9DD1-9FDD-4561-AC53-63A5388FEA43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reaganism.Paperclip.Build", "Reaganism.Paperclip.Build\Reaganism.Paperclip.Build.csproj", "{71D31264-7438-4D66-AEC8-3A24E0AD2605}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC42DD83-E7E0-4AA4-A1BC-4880F9F32E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC42DD83-E7E0-4AA4-A1BC-4880F9F32E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC42DD83-E7E0-4AA4-A1BC-4880F9F32E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC42DD83-E7E0-4AA4-A1BC-4880F9F32E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DC8D19-8DB8-4B2A-B8E7-78A696785F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DC8D19-8DB8-4B2A-B8E7-78A696785F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DC8D19-8DB8-4B2A-B8E7-78A696785F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DC8D19-8DB8-4B2A-B8E7-78A696785F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814E9DD1-9FDD-4561-AC53-63A5388FEA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814E9DD1-9FDD-4561-AC53-63A5388FEA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814E9DD1-9FDD-4561-AC53-63A5388FEA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814E9DD1-9FDD-4561-AC53-63A5388FEA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D31264-7438-4D66-AEC8-3A24E0AD2605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D31264-7438-4D66-AEC8-3A24E0AD2605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D31264-7438-4D66-AEC8-3A24E0AD2605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D31264-7438-4D66-AEC8-3A24E0AD2605}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
