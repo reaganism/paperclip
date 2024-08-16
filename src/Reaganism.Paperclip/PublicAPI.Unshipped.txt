@@ -6,13 +6,19 @@ override Reaganism.Paperclip.Workspace.DepotNode.Kind.get -> string!
 override Reaganism.Paperclip.Workspace.ModNode.Kind.get -> string!
 Reaganism.Paperclip.PatchSetHandler
 Reaganism.Paperclip.PatchSetHandler.AllNodes.get -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.PatchSetHandler.DownloadDepots(string! username, string! password, string! regex) -> void
+Reaganism.Paperclip.PatchSetHandler.GetNodesOfType<T>() -> System.Collections.Generic.IEnumerable<T!>!
+Reaganism.Paperclip.PatchSetHandler.GetNodeWithName(string! name) -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
 Reaganism.Paperclip.PatchSetHandler.PatchSet.get -> Reaganism.Paperclip.Workspace.PatchSet!
 Reaganism.Paperclip.PatchSetHandler.PatchSetHandler(Reaganism.Paperclip.Workspace.PatchSet! patchSet) -> void
 Reaganism.Paperclip.Workspace.DepotNode
-Reaganism.Paperclip.Workspace.DepotNode.Appid.get -> int
+Reaganism.Paperclip.Workspace.DepotNode.AppId.get -> int
+Reaganism.Paperclip.Workspace.DepotNode.DecompiledLibraries.get -> System.Collections.Generic.List<string!>!
 Reaganism.Paperclip.Workspace.DepotNode.DepotId.get -> int
 Reaganism.Paperclip.Workspace.DepotNode.DepotNode(Reaganism.Paperclip.Workspace.MetaNode! meta) -> void
 Reaganism.Paperclip.Workspace.DepotNode.PathToExecutable.get -> string!
+Reaganism.Paperclip.Workspace.DepotNode.ResourceNamespaces.get -> System.Collections.Generic.List<string!>!
+Reaganism.Paperclip.Workspace.DepotNode.Transformers.get -> System.Collections.Generic.List<string!>!
 Reaganism.Paperclip.Workspace.MetaNode
 Reaganism.Paperclip.Workspace.MetaNode.Children.get -> Reaganism.Paperclip.Workspace.MetaNode![]!
 Reaganism.Paperclip.Workspace.MetaNode.Children.set -> void

@@ -130,7 +130,7 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     ///     The Steam App ID of the depot.
     /// </summary>
     [PublicAPI]
-    public int Appid
+    public int AppId
     {
         [PublicAPI] get => (int)(Meta.Data["appId"] as long? ?? 0L);
     }
@@ -142,6 +142,27 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     public int DepotId
     {
         [PublicAPI] get => (int)(Meta.Data["depotId"] as long? ?? 0L);
+    }
+
+    /// <summary>
+    ///     The transformers to apply to the decompiled code.
+    /// </summary>
+    [PublicAPI]
+    public List<string> Transformers
+    {
+        [PublicAPI] get => Meta.Data["transformers"] as List<string> ?? [];
+    }
+
+    [PublicAPI]
+    public List<string> DecompiledLibraries
+    {
+        [PublicAPI] get => Meta.Data["decompiledLibraries"] as List<string> ?? [];
+    }
+
+    [PublicAPI]
+    public List<string> ResourceNamespaces
+    {
+        [PublicAPI] get => Meta.Data["resourceNamespaces"] as List<string> ?? [];
     }
 }
 

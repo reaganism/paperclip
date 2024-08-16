@@ -23,6 +23,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.11.0-beta1.24324.1" PrivateAssets="all">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Mono.Cecil" Version="0.11.5"/>
         <PackageReference Include="Roslynator.Analyzers" Version="4.12.4" PrivateAssets="all">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -40,6 +41,7 @@
     <ItemGroup>
         <ProjectReference Include="..\cdc\src\fbi\src\Reaganism.FBI\Reaganism.FBI.csproj"/>
         <ProjectReference Include="..\cdc\src\Reaganism.CDC\Reaganism.CDC.csproj"/>
+        <ProjectReference Include="..\DepotDownloader\DepotDownloader\DepotDownloader.csproj"/>
     </ItemGroup>
 
 </Project>
