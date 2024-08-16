@@ -5,6 +5,9 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
+        <RootNamespace>Reaganism.Paperclip.Build</RootNamespace>
+        <AssemblyName>paperclip</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,6 +30,7 @@
         <PackageReference Include="Roslynator.Analyzers" Version="4.12.4" PrivateAssets="all">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Spectre.Console" Version="0.49.2-preview.0.16"/>
     </ItemGroup>
 
     <ItemGroup>
