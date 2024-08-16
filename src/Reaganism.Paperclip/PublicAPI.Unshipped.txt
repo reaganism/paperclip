@@ -1,0 +1,51 @@
+#nullable enable
+abstract Reaganism.Paperclip.Workspace.WorkspaceNode.Kind.get -> string!
+const Reaganism.Paperclip.Workspace.WorkspaceNode.KIND_DEPOT = "depot" -> string!
+const Reaganism.Paperclip.Workspace.WorkspaceNode.KIND_MOD = "mod" -> string!
+override Reaganism.Paperclip.Workspace.DepotNode.Kind.get -> string!
+override Reaganism.Paperclip.Workspace.ModNode.Kind.get -> string!
+Reaganism.Paperclip.Workspace.DepotNode
+Reaganism.Paperclip.Workspace.DepotNode.Appid.get -> int
+Reaganism.Paperclip.Workspace.DepotNode.DepotId.get -> int
+Reaganism.Paperclip.Workspace.DepotNode.DepotNode(Reaganism.Paperclip.Workspace.MetaNode! meta) -> void
+Reaganism.Paperclip.Workspace.DepotNode.PathToExecutable.get -> string!
+Reaganism.Paperclip.Workspace.MetaNode
+Reaganism.Paperclip.Workspace.MetaNode.Children.get -> Reaganism.Paperclip.Workspace.MetaNode![]!
+Reaganism.Paperclip.Workspace.MetaNode.Children.set -> void
+Reaganism.Paperclip.Workspace.MetaNode.Data.get -> System.Collections.Generic.Dictionary<string!, object!>!
+Reaganism.Paperclip.Workspace.MetaNode.Data.set -> void
+Reaganism.Paperclip.Workspace.MetaNode.Kind.get -> string!
+Reaganism.Paperclip.Workspace.MetaNode.Kind.set -> void
+Reaganism.Paperclip.Workspace.MetaNode.MetaNode() -> void
+Reaganism.Paperclip.Workspace.MetaNode.Name.get -> string!
+Reaganism.Paperclip.Workspace.MetaNode.Name.set -> void
+Reaganism.Paperclip.Workspace.MetaNode.Parent.get -> string?
+Reaganism.Paperclip.Workspace.MetaNode.Parent.set -> void
+Reaganism.Paperclip.Workspace.MetaNode.PatchDir.get -> string!
+Reaganism.Paperclip.Workspace.MetaNode.PatchDir.set -> void
+Reaganism.Paperclip.Workspace.MetaSet
+Reaganism.Paperclip.Workspace.MetaSet.Dependencies.get -> string![]!
+Reaganism.Paperclip.Workspace.MetaSet.Dependencies.set -> void
+Reaganism.Paperclip.Workspace.MetaSet.MetaSet() -> void
+Reaganism.Paperclip.Workspace.MetaSet.Nodes.get -> Reaganism.Paperclip.Workspace.MetaNode![]!
+Reaganism.Paperclip.Workspace.MetaSet.Nodes.set -> void
+Reaganism.Paperclip.Workspace.ModNode
+Reaganism.Paperclip.Workspace.ModNode.ModNode(Reaganism.Paperclip.Workspace.MetaNode! meta) -> void
+Reaganism.Paperclip.Workspace.PatchSet
+Reaganism.Paperclip.Workspace.PatchSet.Dependencies.get -> System.Collections.Generic.List<Reaganism.Paperclip.Workspace.PatchSet!>!
+Reaganism.Paperclip.Workspace.PatchSet.GetAllNodes(Reaganism.Paperclip.Workspace.WorkspaceNode? node = null) -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.Workspace.PatchSet.Nodes.get -> System.Collections.Generic.List<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.Workspace.PatchSet.PatchSet() -> void
+Reaganism.Paperclip.Workspace.PatchSet.TopLevelNodes.get -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.Workspace.WorkspaceNode
+Reaganism.Paperclip.Workspace.WorkspaceNode.Children.get -> System.Collections.Generic.List<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.Workspace.WorkspaceNode.Meta.get -> Reaganism.Paperclip.Workspace.MetaNode!
+Reaganism.Paperclip.Workspace.WorkspaceNode.Name.get -> string!
+Reaganism.Paperclip.Workspace.WorkspaceNode.Parent.get -> Reaganism.Paperclip.Workspace.WorkspaceNode?
+Reaganism.Paperclip.Workspace.WorkspaceNode.Parent.set -> void
+Reaganism.Paperclip.Workspace.WorkspaceNode.PatchDir.get -> string!
+Reaganism.Paperclip.Workspace.WorkspaceNode.WorkspaceNode(Reaganism.Paperclip.Workspace.MetaNode! meta) -> void
+static Reaganism.Paperclip.Workspace.PatchSet.FromFile(string! path) -> Reaganism.Paperclip.Workspace.PatchSet!
+static Reaganism.Paperclip.Workspace.PatchSet.FromJson(string! json, string! rootDir) -> Reaganism.Paperclip.Workspace.PatchSet!
+static Reaganism.Paperclip.Workspace.PatchSet.FromMeta(Reaganism.Paperclip.Workspace.MetaSet! meta, string! rootDir) -> Reaganism.Paperclip.Workspace.PatchSet!
+static Reaganism.Paperclip.Workspace.WorkspaceNode.FromMeta(Reaganism.Paperclip.Workspace.MetaNode! meta, string! rootDir) -> Reaganism.Paperclip.Workspace.WorkspaceNode!
