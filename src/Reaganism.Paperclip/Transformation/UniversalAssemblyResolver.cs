@@ -55,7 +55,7 @@ internal sealed class UniversalAssemblyResolver : IAssemblyResolver
 
     public void AddSearchDirectory(string directory)
     {
-        baseResolver.AddSearchDirectory("directory");
+        baseResolver.AddSearchDirectory(directory);
     }
 
     public void AddEmbeddedAssembliesFrom(ModuleDefinition module)
