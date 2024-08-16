@@ -66,7 +66,6 @@ public sealed class PatchSetHandler(PatchSet patchSet)
             var dir = Path.Combine(sources_dir, node.Name);
             Console.WriteLine($"Decompiling {node.Name}...");
             {
-                Console.WriteLine("    Transforming assemblies...");
                 if (Directory.Exists(dir))
                 {
                     Directory.Delete(dir, true);
@@ -79,6 +78,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                     throw new DirectoryNotFoundException($"Depot directory not found: {depotDir}");
                 }
 
+                Console.WriteLine("    Copying files...");
                 var clonedDir = Path.Combine(cloned_dir, node.Name);
                 if (Directory.Exists(clonedDir))
                 {
@@ -88,10 +88,12 @@ public sealed class PatchSetHandler(PatchSet patchSet)
 
                 var exePath = Path.Combine(clonedDir, node.PathToExecutable);
 
+                Console.WriteLine("    Transforming assemblies...");
                 var transformers = AssemblyTransformer.GetTransformers(node.Transformers);
                 var ctx          = AssemblyTransformer.GetAssemblyContextWithUniversalAssemblyResolverFromPath(exePath);
                 AssemblyTransformer.TransformAssembly(ctx, transformers);
 
+                Console.WriteLine("    Decompiling assemblies...");
                 var decompilerSettings = new DecompilerSettings
                 {
                     CSharpFormattingOptions = FormattingOptionsFactory.CreateAllman(),
