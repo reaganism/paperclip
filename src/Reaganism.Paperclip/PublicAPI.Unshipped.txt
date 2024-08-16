@@ -6,9 +6,12 @@ override Reaganism.Paperclip.Workspace.DepotNode.Kind.get -> string!
 override Reaganism.Paperclip.Workspace.ModNode.Kind.get -> string!
 Reaganism.Paperclip.PatchSetHandler
 Reaganism.Paperclip.PatchSetHandler.AllNodes.get -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.PatchSetHandler.DecompileDepots(System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.DepotNode!>! nodes) -> void
+Reaganism.Paperclip.PatchSetHandler.DiffNodes(System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>! nodes) -> void
 Reaganism.Paperclip.PatchSetHandler.DownloadDepots(string! username, string! password, string! regex) -> void
 Reaganism.Paperclip.PatchSetHandler.GetNodesOfType<T>() -> System.Collections.Generic.IEnumerable<T!>!
 Reaganism.Paperclip.PatchSetHandler.GetNodeWithName(string! name) -> System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>!
+Reaganism.Paperclip.PatchSetHandler.PatchNodes(System.Collections.Generic.IEnumerable<Reaganism.Paperclip.Workspace.WorkspaceNode!>! nodes) -> void
 Reaganism.Paperclip.PatchSetHandler.PatchSet.get -> Reaganism.Paperclip.Workspace.PatchSet!
 Reaganism.Paperclip.PatchSetHandler.PatchSetHandler(Reaganism.Paperclip.Workspace.PatchSet! patchSet) -> void
 Reaganism.Paperclip.Workspace.DepotNode

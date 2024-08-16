@@ -1,3 +1,6 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
+
 using JetBrains.Annotations;
 
 namespace Reaganism.Paperclip.Workspace;
@@ -123,7 +126,21 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     [PublicAPI]
     public string PathToExecutable
     {
-        [PublicAPI] get => Meta.Data["pathToExecutable"] as string ?? string.Empty;
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("pathToExecutable", out var pathToExecutable))
+            {
+                return string.Empty;
+            }
+
+            if (pathToExecutable is not JsonElement element)
+            {
+                return string.Empty;
+            }
+
+            return element.GetString() ?? string.Empty;
+        }
     }
 
     /// <summary>
@@ -132,7 +149,23 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     [PublicAPI]
     public int AppId
     {
-        [PublicAPI] get => (int)(Meta.Data["appId"] as long? ?? 0L);
+        [PublicAPI]
+        get
+        {
+            // (int)(Meta.Data["appId"] as long? ?? 0L);
+
+            if (!Meta.Data.TryGetValue("appId", out var appId))
+            {
+                return 0;
+            }
+
+            if (appId is not JsonElement element)
+            {
+                return 0;
+            }
+
+            return element.GetInt32();
+        }
     }
 
     /// <summary>
@@ -141,7 +174,21 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     [PublicAPI]
     public int DepotId
     {
-        [PublicAPI] get => (int)(Meta.Data["depotId"] as long? ?? 0L);
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("depotId", out var depotId))
+            {
+                return 0;
+            }
+
+            if (depotId is not JsonElement element)
+            {
+                return 0;
+            }
+
+            return element.GetInt32();
+        }
     }
 
     /// <summary>
@@ -150,19 +197,63 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     [PublicAPI]
     public List<string> Transformers
     {
-        [PublicAPI] get => Meta.Data["transformers"] as List<string> ?? [];
+        [PublicAPI]
+        get
+        {
+            // Meta.Data["transformers"] as List<string> ?? [];
+
+            if (!Meta.Data.TryGetValue("transformers", out var transformers))
+            {
+                return [];
+            }
+
+            if (transformers is not JsonElement array)
+            {
+                return [];
+            }
+
+            return array.EnumerateArray().Select(x => x.GetString()).ToList()!;
+        }
     }
 
     [PublicAPI]
     public List<string> DecompiledLibraries
     {
-        [PublicAPI] get => Meta.Data["decompiledLibraries"] as List<string> ?? [];
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("decompiledLibraries", out var decompiledLibraries))
+            {
+                return [];
+            }
+
+            if (decompiledLibraries is not JsonElement array)
+            {
+                return [];
+            }
+
+            return array.EnumerateArray().Select(x => x.GetString()).ToList()!;
+        }
     }
 
     [PublicAPI]
     public List<string> ResourceNamespaces
     {
-        [PublicAPI] get => Meta.Data["resourceNamespaces"] as List<string> ?? [];
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("resourceNamespaces", out var resourceNamespaces))
+            {
+                return [];
+            }
+
+            if (resourceNamespaces is not JsonElement array)
+            {
+                return [];
+            }
+
+            return array.EnumerateArray().Select(x => x.GetString()).ToList()!;
+        }
     }
 }
 
