@@ -8,7 +8,7 @@ internal static class Program
 {
     // Don't download files not relevant to basic decompilation; development
     // should reference files from an actual installation.
-    private const string file_exclusion_regex = @"^.*(?<!\.xnb)(?<!\.xwb)(?<!\.xsb)(?<!\.xgs)(?<!\.bat)(?<!\.txt)(?<!\.xml)(?<!\.msi)(?<!\.config)(?<!monoconfig)(?<!monomachineconfig)(?<!open-folder)(?<!\.bin\.x86_64)(?<!\.png)(?<!\.so\.[0-9])(?<!\.so\.[0-9][0-9])(?<!\.so)(?<!\.plist)(?<!\.json)(?<!\.bin\.osx)(?<!\.dylib)$";
+    private const string file_exclusion_regex = @"^.*(?<!\.xnb)(?<!\.xwb)(?<!\.xsb)(?<!\.xgs)(?<!\.bat)(?<!\.txt)(?<!\.xml)(?<!\.msi)(?<!\.config)(?<!monoconfig)(?<!monomachineconfig)(?<!open-folder)(?<!\.bin\.x86_64)(?<!\.png)(?<!\.so\.[0-9])(?<!\.so\.[0-9][0-9])(?<!\.so)(?<!\.plist)(?<!\.json)(?<!\.bin\.osx)(?<!\.dylib)(?<!\.col)(?<!\.wpt)(?<!\.gsf)(?<!\.vtf)(?<!\.dlf)$";
 
     private const string install_depots   = "Install Depots";
     private const string decompile_depots = "Decompile Depots";
