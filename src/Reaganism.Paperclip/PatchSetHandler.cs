@@ -132,7 +132,9 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                     node.PatchDir
                 ).IgnoreCommonDirectories()
                  .HandleCommonFileTypes();
+            // GC.TryStartNoGCRegion(1024 * 1024 * 1024);
             ProjectDiffer.Diff(differSettings);
+            // GC.EndNoGCRegion();
         }
     }
 
