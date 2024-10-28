@@ -1,3 +1,4 @@
+/*
 using DepotDownloader.Platform;
 
 namespace Reaganism.Paperclip.Platform;
@@ -16,3 +17,4 @@ internal sealed class ReducedPlatform(IPlatform platform) : IPlatform
         // executables to actually be executable.
     }
 }
+*/
