@@ -63,11 +63,6 @@ public sealed class PatchSetHandler(PatchSet patchSet)
     {
         foreach (var node in nodes)
         {
-            if (node.Name != "TerrariaServerWindows")
-            {
-                continue;
-            }
-
             var dir = Path.Combine(sources_dir, node.Name);
             Console.WriteLine($"Decompiling {node.Name}...");
             {
