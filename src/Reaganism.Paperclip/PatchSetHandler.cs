@@ -194,7 +194,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                 "-dir", dir,
                 // "-remember-password" 
             ]
-        );
+        ).GetAwaiter().GetResult();
     }
 
     private static void CopyRecursively(string fromDir, string toDir)
