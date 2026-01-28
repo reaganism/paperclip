@@ -255,6 +255,26 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
             return array.EnumerateArray().Select(x => x.GetString()).ToList()!;
         }
     }
+
+    [PublicAPI]
+    public List<string> PolyfilledLibraries
+    {
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("polyfilledLibraries", out var polyfilledLibraries))
+            {
+                return [];
+            }
+
+            if (polyfilledLibraries is not JsonElement array)
+            {
+                return [];
+            }
+
+            return array.EnumerateArray().Select(x => Path.Combine(Path.GetDirectoryName(Meta.PatchDir)!, x.GetString()!)).ToList();
+        }
+    }
 }
 
 /// <summary>

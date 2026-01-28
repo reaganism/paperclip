@@ -63,6 +63,11 @@ public sealed class PatchSetHandler(PatchSet patchSet)
     {
         foreach (var node in nodes)
         {
+            if (node.Name != "TerrariaServerWindows")
+            {
+                continue;
+            }
+
             var dir = Path.Combine(sources_dir, node.Name);
             Console.WriteLine($"Decompiling {node.Name}...");
             {
@@ -99,7 +104,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                     CSharpFormattingOptions = FormattingOptionsFactory.CreateAllman(),
                     Ranges                  = false,
                 };
-                ProjectDecompiler.Decompile(exePath, dir, decompilerSettings, node.DecompiledLibraries.ToArray(), node.ResourceNamespaces.ToArray());
+                ProjectDecompiler.Decompile(exePath, dir, decompilerSettings, node.DecompiledLibraries.ToArray(), node.ResourceNamespaces.ToArray(), node.PolyfilledLibraries.ToArray());
             }
         }
     }
