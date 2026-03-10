@@ -192,6 +192,29 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     }
 
     /// <summary>
+    ///     The Steam Manifest ID of the depot.
+    /// </summary>
+    [PublicAPI]
+    public string? ManifestID
+    {
+        [PublicAPI]
+        get
+        {
+            if (!Meta.Data.TryGetValue("manifestId", out var depotId))
+            {
+                return null;
+            }
+
+            if (depotId is not JsonElement element)
+            {
+                return null;
+            }
+
+            return element.GetString();
+        }
+    }
+
+    /// <summary>
     ///     The transformers to apply to the decompiled code.
     /// </summary>
     [PublicAPI]

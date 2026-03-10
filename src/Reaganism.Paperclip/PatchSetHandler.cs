@@ -45,15 +45,15 @@ public sealed class PatchSetHandler(PatchSet patchSet)
     {
         File.WriteAllText("filelist.txt", $"regex:{regex}");
         {
-            var hashset = new HashSet<(int, int)>();
+            var hashset = new HashSet<(int, int, string?)>();
             foreach (var node in GetNodesOfType<DepotNode>())
             {
-                if (!hashset.Add((node.AppId, node.DepotId)))
+                if (!hashset.Add((node.AppId, node.DepotId, node.ManifestID)))
                 {
                     continue;
                 }
 
-                DownloadManifest(username, password, node.AppId, node.DepotId);
+                DownloadManifest(username, password, node.AppId, node.DepotId, node.ManifestID);
             }
         }
         File.Delete("filelist.txt");
@@ -72,7 +72,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                 }
                 Directory.CreateDirectory(dir);
 
-                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString());
+                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString(), node.ManifestID ?? "no-manifest");
                 if (!Directory.Exists(depotDir))
                 {
                     throw new DirectoryNotFoundException($"Depot directory not found: {depotDir}");
@@ -176,7 +176,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
         return [AllNodes.Single(n => n.Name == name)];
     }
 
-    private static void DownloadManifest(string username, string password, int appId, int depotId)
+    private static void DownloadManifest(string username, string password, int appId, int depotId, string? manifestId)
     {
         var dir = Path.Combine(downloads_dir, appId.ToString(), depotId.ToString());
         if (Directory.Exists(dir))
@@ -184,15 +184,26 @@ public sealed class PatchSetHandler(PatchSet patchSet)
             Directory.Delete(dir, true);
         }
 
-        DepotDownloader.Program.Main(
-            [
+        var args = new List<string>
+        {
                 "-app", appId.ToString(),
                 "-depot", depotId.ToString(),
                 "-filelist", "filelist.txt",
                 "-username", username,
                 "-password", password,
                 "-dir", dir,
-                // "-remember-password" 
+                // "-remember-password",
+        };
+
+        if (manifestId is not null)
+        {
+            args.Add("-manifest");
+            args.Add(manifestId);
+        }
+
+        DepotDownloader.Program.Main(
+            [
+
             ]
         ).GetAwaiter().GetResult();
     }
