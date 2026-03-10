@@ -21,6 +21,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
     private const string downloads_dir = "downloads";
     private const string sources_dir   = "sources";
     private const string cloned_dir    = "cloned";
+    private const string no_manifest   = "no-manifest";
 
     /// <summary>
     ///     All the nodes in the patch-set.
@@ -72,7 +73,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                 }
                 Directory.CreateDirectory(dir);
 
-                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString(), node.ManifestId ?? "no-manifest");
+                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString(), node.ManifestId ?? no_manifest);
                 if (!Directory.Exists(depotDir))
                 {
                     throw new DirectoryNotFoundException($"Depot directory not found: {depotDir}");
@@ -178,7 +179,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
 
     private static void DownloadManifest(string username, string password, int appId, int depotId, string? manifestId)
     {
-        var dir = Path.Combine(downloads_dir, appId.ToString(), depotId.ToString());
+        var dir = Path.Combine(downloads_dir, appId.ToString(), depotId.ToString(), manifestId ?? no_manifest);
         if (Directory.Exists(dir))
         {
             Directory.Delete(dir, true);
