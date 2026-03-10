@@ -19,6 +19,7 @@ Reaganism.Paperclip.Workspace.DepotNode.AppId.get -> int
 Reaganism.Paperclip.Workspace.DepotNode.DecompiledLibraries.get -> System.Collections.Generic.List<string!>!
 Reaganism.Paperclip.Workspace.DepotNode.DepotId.get -> int
 Reaganism.Paperclip.Workspace.DepotNode.DepotNode(Reaganism.Paperclip.Workspace.MetaNode! meta) -> void
+Reaganism.Paperclip.Workspace.DepotNode.ManifestId.get -> string?
 Reaganism.Paperclip.Workspace.DepotNode.PathToExecutable.get -> string!
 Reaganism.Paperclip.Workspace.DepotNode.PolyfilledLibraries.get -> System.Collections.Generic.List<string!>!
 Reaganism.Paperclip.Workspace.DepotNode.ResourceNamespaces.get -> System.Collections.Generic.List<string!>!

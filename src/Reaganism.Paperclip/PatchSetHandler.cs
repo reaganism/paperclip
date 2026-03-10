@@ -48,12 +48,12 @@ public sealed class PatchSetHandler(PatchSet patchSet)
             var hashset = new HashSet<(int, int, string?)>();
             foreach (var node in GetNodesOfType<DepotNode>())
             {
-                if (!hashset.Add((node.AppId, node.DepotId, node.ManifestID)))
+                if (!hashset.Add((node.AppId, node.DepotId, node.ManifestId)))
                 {
                     continue;
                 }
 
-                DownloadManifest(username, password, node.AppId, node.DepotId, node.ManifestID);
+                DownloadManifest(username, password, node.AppId, node.DepotId, node.ManifestId);
             }
         }
         File.Delete("filelist.txt");
@@ -72,7 +72,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
                 }
                 Directory.CreateDirectory(dir);
 
-                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString(), node.ManifestID ?? "no-manifest");
+                var depotDir = Path.Combine(downloads_dir, node.AppId.ToString(), node.DepotId.ToString(), node.ManifestId ?? "no-manifest");
                 if (!Directory.Exists(depotDir))
                 {
                     throw new DirectoryNotFoundException($"Depot directory not found: {depotDir}");
@@ -201,11 +201,7 @@ public sealed class PatchSetHandler(PatchSet patchSet)
             args.Add(manifestId);
         }
 
-        DepotDownloader.Program.Main(
-            [
-
-            ]
-        ).GetAwaiter().GetResult();
+        DepotDownloader.Program.Main(args.ToArray()).GetAwaiter().GetResult();
     }
 
     private static void CopyRecursively(string fromDir, string toDir)

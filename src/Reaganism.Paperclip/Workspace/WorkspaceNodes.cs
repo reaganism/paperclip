@@ -195,7 +195,7 @@ public sealed class DepotNode(MetaNode meta) : WorkspaceNode(meta)
     ///     The Steam Manifest ID of the depot.
     /// </summary>
     [PublicAPI]
-    public string? ManifestID
+    public string? ManifestId
     {
         [PublicAPI]
         get
